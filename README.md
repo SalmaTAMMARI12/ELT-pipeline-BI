@@ -66,12 +66,12 @@ L’orchestration globale est gérée par Dagster qui lance les étapes DBT, con
 | metabase         | Visualization and BI dashboard    
 
 ## 🛠️ Requirements
+1. Installation Python / Dagster
 
-### Python (for Dagster in data_pipeline/data_pipeline/)
-```bash
-pip install great-expectations==0.15.50 pandas==1.5.3 numpy==1.23.5 SQLAlchemy==1.4.5
+pip install  pandas==1.5.3 numpy==1.23.5 SQLAlchemy==1.4.5
 pip install dagster==1.11.2 dagster-webserver==1.11.2 dagster-graphql==1.11.2 \
             dagster-dbt==0.27.2 dagster-postgres==0.27.2 dagster-ge==0.27.2
+
 🚀 Getting Started
 Clone the repository:
 
@@ -96,9 +96,6 @@ PostgreSQL	localhost	5433	uatrs_db	uatrs_user	uatrs_pass
 🛠️ DBT Installation et Configuration
 Créer un environnement virtuel et activer
 
-bash
-Copier
-Modifier
 python -m venv dbt_venv
 # Sur Windows PowerShell
 .\dbt_venv\Scripts\Activate.ps1
@@ -106,23 +103,15 @@ python -m venv dbt_venv
 source dbt_venv/bin/activate
 Installer DBT
 
-bash
-Copier
-Modifier
 pip install dbt-core dbt-postgres
 Cloner le projet DBT (ou utiliser le dossier existant)
 
-bash
-Copier
-Modifier
 git clone https://github.com/Idriss-Abidi/DataWarehouse_BI
 Configurer le fichier profiles.yml
 
 Exemple :
 
 yaml
-Copier
-Modifier
 dbt_proj:
   outputs:
     dev:
@@ -137,64 +126,40 @@ dbt_proj:
   target: "dev"
 Tester la connexion
 
-bash
-Copier
-Modifier
 dbt debug
 Lancer les transformations
 
-bash
-Copier
-Modifier
+dbt deps
+installer les dependances
+
 dbt run
 ⚙️ Dagster Integration
 Installer Dagster et plugins DBT
-
-bash
-Copier
-Modifier
 pip install dagster dagster-dbt dagster-webserver
+
 Scaffold un projet Dagster DBT
-
-bash
-Copier
-Modifier
 dagster-dbt project scaffold --project-name my_dagster_project --dbt-project-dir <path_to_dbt_project>
-Lancer Dagster
 
-bash
-Copier
-Modifier
+Lancer Dagster
 cd my_dagster_project
 dagster dev -p 5000
-Interface accessible sur http://localhost:5000
 
+Interface accessible sur http://localhost:5000
 📊 Metabase Installation et Configuration
 Installer Metabase avec Docker
-
-bash
-Copier
-Modifier
 docker pull metabase/metabase
 docker run -d --name metabase -p 3000:3000 <path_to_dashboard_folder>:/metabase.db metabase/metabase
+
 Accéder à Metabase
-
 http://localhost:3000
-
 Configurer la connexion à PostgreSQL
-
 Database Name: <database_name>
-
 Host: host.docker.internal
-
 Port: 5432
-
 Username: postgres (ou celui configuré)
-
 Password: <votre_mot_de_passe>
 
 Créer vos dashboards
-
 🏁 Démarrage complet du pipeline
 docker-compose up --build pour lancer les services
 
@@ -204,6 +169,5 @@ Accéder aux dashboards Metabase
 
 Lancer les pipelines et transformations via Dagster
 
-T
 
 
