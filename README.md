@@ -1,4 +1,4 @@
-# 📦 Data Pipeline: MySQL to PostgreSQL + Kafka + Dagster + DBT + Metabase
+# 📦 Data Pipeline: Dagster + DBT + Metabase
 
 Ce projet met en place un pipeline de données complet qui :
 
@@ -135,7 +135,14 @@ dbt deps
 installer les dependances
 
 dbt run
+pour excéuter vos models
+
+dbt docs generate
+dbt docs serve
+dans le but de voir DAG de vos models pour en pouvoir visualiser les dépendances
+ 
 🛠️ Détails sur l'exécution de DBT avec variables d’environnement
+
 Avant de lancer les commandes DBT, il est nécessaire d’exécuter un script envbat (ou tout autre script d’environnement) qui permet de charger les variables d’environnement nécessaires au fonctionnement global du pipeline.
 
 Pourquoi exécuter envbat ?
