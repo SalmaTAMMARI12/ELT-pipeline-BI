@@ -193,7 +193,7 @@ Créer vos dashboards
 🏁 Démarrage complet du pipeline
 docker-compose up --build pour lancer les services
 
-dagster dev -p 5000 pour Dagster
+dagster dev -p 4000 pour Dagster
 
 Accéder aux dashboards Metabase
 
