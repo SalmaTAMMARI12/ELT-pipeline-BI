@@ -1,5 +1,4 @@
-📦 Data Pipeline for MySQL to Postgres + Kafka Integration with Debezium, Dagster, Metabase & Data Quality
-
+# 📦 Data Pipeline: MySQL → PostgreSQL + Kafka + Dagster + DBT + Metabase
 
 Ce projet met en place un pipeline de données complet qui :
 
@@ -19,6 +18,22 @@ Ce projet met en place un pipeline de données complet qui :
 4. [Intégration Dagster](#-dagster-integration)  
 5. [Installation et Configuration de Metabase](#-metabase-installation-et-configuration)  
 6. [Démarrage du Pipeline](#-demarrage-du-pipeline)  
+
+---
+
+## 🗺️ Architecture Overview
+
+```text
+MySQL (source) → pgloader → PostgreSQL (target)
+          |
+       (Debezium CDC)
+          ↓
+       Kafka (broker)
+          ↓
+     Dagster (orchestration & DQ)
+          ↓
+     Metabase (BI & dashboarding)
+
 
 ---
 
