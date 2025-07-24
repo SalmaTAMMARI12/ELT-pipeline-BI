@@ -89,9 +89,11 @@ Dagster: http://localhost:3000 (après démarrage avec dagster dev)
 
 Identifiants des bases
 
-Composant	Host	Port	DB Name	User	Password
-MySQL	localhost	3307	uatrs_db	uatrs_user	uatrs_pass
-PostgreSQL	localhost	5433	uatrs_db	uatrs_user	uatrs_pass
+Composant  	Host	      Port	   DB  Name	   User	       Password
+MySQL	      localhost	  3307	   uatrs_db	   uatrs_user	 uatrs_pass
+PostgreSQL	localhost 	5433	   uatrs_db	   uatrs_user  uatrs_pass
+
+
 
 🛠️ DBT Installation et Configuration
 Créer un environnement virtuel et activer
@@ -133,6 +135,27 @@ dbt deps
 installer les dependances
 
 dbt run
+🛠️ Détails sur l'exécution de DBT avec variables d’environnement
+Avant de lancer les commandes DBT, il est nécessaire d’exécuter un script envbat (ou tout autre script d’environnement) qui permet de charger les variables d’environnement nécessaires au fonctionnement global du pipeline.
+
+Pourquoi exécuter envbat ?
+Ce script définit des variables d’environnement (par exemple des chemins, des clés API, des paramètres de connexion...) indispensables au bon fonctionnement des étapes suivantes.
+
+Sans ces variables, certains scripts, notamment le script Python de génération de fichiers SQL, risquent de ne pas fonctionner correctement.
+
+Processus complet
+Lancer le script env.bat
+call env.bat
+Cela charge toutes les variables d’environnement dans la session actuelle.
+
+Exécuter le script Python de génération des fichiers SQL 
+Ce script crée automatiquement plusieurs fichiers .sql, un par ID disponible (exemple : un fichier par client, projet ou autre identifiant métier).
+Ces fichiers SQL font appel à des macros DBT réutilisables, permettant de standardiser et simplifier les transformations.
+
+Se positionner dans le dossier DBT
+cd <chemin_du_dossier_dbt>
+Lancer DBT pour compiler et exécuter les modèles
+
 ⚙️ Dagster Integration
 Installer Dagster et plugins DBT
 pip install dagster dagster-dbt dagster-webserver
@@ -142,9 +165,9 @@ dagster-dbt project scaffold --project-name my_dagster_project --dbt-project-dir
 
 Lancer Dagster
 cd my_dagster_project
-dagster dev -p 5000
+dagster dev -p 4000
 
-Interface accessible sur http://localhost:5000
+Interface accessible sur http://localhost:4000
 📊 Metabase Installation et Configuration
 Installer Metabase avec Docker
 docker pull metabase/metabase
@@ -168,6 +191,3 @@ dagster dev -p 5000 pour Dagster
 Accéder aux dashboards Metabase
 
 Lancer les pipelines et transformations via Dagster
-
-
-
