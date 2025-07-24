@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: public
+    tables:
+      - name: affectation
+      - name: application
+      - name: data
+      - name: field
+      - name: form
+      - name: user
+      - name: organization
+      - name: round
+      - name: program
+
+vars:
+  form_id: 1

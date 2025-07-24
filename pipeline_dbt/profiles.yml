@@ -1,0 +1,12 @@
+pipeline_dbt:
+  outputs:
+    dev:
+      dbname: call_db
+      host: localhost
+      pass: testpassword123
+      port: 5432
+      schema: staging
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
