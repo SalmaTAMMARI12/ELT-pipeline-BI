@@ -1,4 +1,4 @@
-#📦 Data Pipeline for MySQL to Postgres + Kafka Integration with Debezium, Dagster, Metabase & Data Quality
+📦 Data Pipeline for MySQL to Postgres + Kafka Integration with Debezium, Dagster, Metabase & Data Quality
 
 
 Ce projet met en place un pipeline de données complet qui :
