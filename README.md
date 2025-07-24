@@ -53,41 +53,35 @@ Visualisation : Metabase permet de créer des dashboards basés sur les données
 
 L’orchestration globale est gérée par Dagster qui lance les étapes DBT, contrôle la qualité des données, etc.
 🔧 Extraction & Migration (pgloader, Debezium, Kafka)
-🐳 Docker Services
-Service	Description
-source-mysql	MySQL 5.7 instance with initialized data
-target-postgres	PostgreSQL 15 for storing migrated data
-pgloader	One-time migration from MySQL to PostgreSQL
-zookeeper	Zookeeper instance required for Kafka
-kafka	Apache Kafka message broker
-debezium	Debezium CDC connector for MySQL to Kafka
-metabase	Visualization and BI dashboard
-🛠️ Prérequis
-Python (pour Dagster dans data_pipeline/data_pipeline/):
+## 🐳 Docker Services
 
-bash
-Copier
-Modifier
+| Service          | Description                                      |
+|------------------|--------------------------------------------------|
+| source-mysql     | MySQL 5.7 instance with initialized data         |
+| target-postgres  | PostgreSQL 15 for storing migrated data          |
+| pgloader         | One-time migration from MySQL to PostgreSQL      |
+| zookeeper        | Zookeeper instance required for Kafka            |
+| kafka            | Apache Kafka message broker                      |
+| debezium         | Debezium CDC connector for MySQL to Kafka        |
+| metabase         | Visualization and BI dashboard    
+
+## 🛠️ Requirements
+
+### Python (for Dagster in data_pipeline/data_pipeline/)
+```bash
 pip install great-expectations==0.15.50 pandas==1.5.3 numpy==1.23.5 SQLAlchemy==1.4.5
 pip install dagster==1.11.2 dagster-webserver==1.11.2 dagster-graphql==1.11.2 \
             dagster-dbt==0.27.2 dagster-postgres==0.27.2 dagster-ge==0.27.2
-🚀 Démarrage - Extraction & Migration
-Cloner le dépôt
+🚀 Getting Started
+Clone the repository:
 
 bash
-Copier
-Modifier
 git clone <repo-url>
 cd <repo-folder>
-Lancer la stack Docker
+Start the stack:
 
 bash
-Copier
-Modifier
 docker-compose up --build
-⚠️ Assurez-vous que les ports 3307, 5433, 29092, 8083 et 3001 sont libres.
-
-Accès aux services
 
 Metabase: http://localhost:3001
 
