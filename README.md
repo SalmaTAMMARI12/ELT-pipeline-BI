@@ -36,11 +36,11 @@ MySQL (source) → pgloader → PostgreSQL (target)
 
 
 ---
-
 ## 🗺️ Architecture du Pipeline
 
-Voici l’architecture globale de la solution :  
+Voici l’architecture globale de la solution :
 ![Diagramme d’architecture](pipeline_de_donnees.png)
+
 
 
 ```text
