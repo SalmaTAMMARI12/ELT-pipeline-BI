@@ -155,7 +155,7 @@ pour excéuter vos models
 
 dbt docs generate
 dbt docs serve
-dans le but de voir DAG de vos models pour en pouvoir visualiser les dépendances
+dont le but est de voir DAG de vos models pour en pouvoir visualiser les dépendances
  
 🛠️ Détails sur l'exécution de DBT avec variables d’environnement
 
@@ -166,23 +166,29 @@ Ce script définit des variables d’environnement (par exemple des chemins, des
 
 Sans ces variables, certains scripts, notamment le script Python de génération de fichiers SQL, risquent de ne pas fonctionner correctement.
 
-Processus complet
-Lancer le script env.bat
-call env.bat
-Cela charge toutes les variables d’environnement dans la session actuelle.
+##Processus complet
 
-Exécuter le script Python de génération des fichiers SQL 
-Ce script crée automatiquement plusieurs fichiers .sql, un par ID disponible (exemple : un fichier par client, projet ou autre identifiant métier).
+#Lancer le script env.bat
+
+call env.bat
+
+#Cela charge toutes les variables d’environnement dans la session actuelle.
+
+#Exécuter le script Python de génération des fichiers SQL
+
+Ce script crée automatiquement plusieurs fichiers .sql, un par ID disponible .
 Ces fichiers SQL font appel à des macros DBT réutilisables, permettant de standardiser et simplifier les transformations.
 
 Se positionner dans le dossier DBT
+
 cd <chemin_du_dossier_dbt>
+
 Lancer DBT pour compiler et exécuter les modèles
 
 ⚙️ Dagster Integration
 Installer Dagster et plugins DBT
-pip install dagster dagster-dbt dagster-webserver
 
+pip install dagster dagster-dbt dagster-webserver
 Scaffold un projet Dagster DBT
 dagster-dbt project scaffold --project-name my_dagster_project --dbt-project-dir <path_to_dbt_project>
 
@@ -191,14 +197,20 @@ cd my_dagster_project
 dagster dev -p 4000
 
 Interface accessible sur http://localhost:4000
+
 📊 Metabase Installation et Configuration
+
 Installer Metabase avec Docker
+
 docker pull metabase/metabase
 docker run -d --name metabase -p 3000:3000 <path_to_dashboard_folder>:/metabase.db metabase/metabase
 
 Accéder à Metabase
+
 http://localhost:3000
+
 Configurer la connexion à PostgreSQL
+
 Database Name: <database_name>
 Host: host.docker.internal
 Port: 5432
@@ -207,6 +219,7 @@ Password: <votre_mot_de_passe>
 
 Créer vos dashboards
 🏁 Démarrage complet du pipeline
+
 docker-compose up --build pour lancer les services
 
 dagster dev -p 4000 pour Dagster
