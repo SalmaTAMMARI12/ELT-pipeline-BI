@@ -8,7 +8,8 @@ Ce projet met en place un pipeline de données complet qui :
 - 🛠️ **Transforme** les données dans PostgreSQL avec **DBT**  
 - 📊 **Analyse et visualise** les données dans **Metabase**
 
----
+![WhatsApp Image 2025-12-01 à 20 38 00_5f8b65ac](https://github.com/user-attachments/assets/f9cf37d2-2ec2-4e19-85b2-4f9915fd66dc)
+
 
 ## 📚 Table des matières
 
